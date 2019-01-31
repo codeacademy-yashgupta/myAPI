@@ -7,6 +7,8 @@ const server = new Hapi.Server({
 });
 
 server.route(routes);
-server.start();
+if (!module.parent) {
+  server.start();
+}
 console.log('Server started successfully');
 module.exports = server;
